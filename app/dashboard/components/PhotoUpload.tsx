@@ -74,7 +74,7 @@ export default function PhotoUpload() {
   };
 
   return (
-    <div>
+    <div className="text-center h-fit">
       <form>
         <label
           htmlFor="photo-upload"

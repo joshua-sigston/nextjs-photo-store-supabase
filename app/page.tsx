@@ -1,15 +1,18 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import Modal from './components/Modal';
 
 export default function Home() {
   const [toggleSignIn, setToggleSignIn] = useState(false);
   const [toggleSignUp, setToggleSignUp] = useState(false);
 
   return (
-    <main className="min-h-screen bg-gray-200 flex items-center justify-center">
+    <main className="min-h-screen bg-gray-200 flex flex-col gap-5 items-center justify-center text-center">
+      <h1>Welcome to your PhotoBucket.</h1>
+      <p>Please sign in or sign up to upload and save photos.</p>
       <div className="flex gap-5">
         <button
           onClick={() => {
@@ -31,34 +34,30 @@ export default function Home() {
         </button>
       </div>
       {toggleSignIn && (
-        <div className="fixed flex items-center justify-center">
-          <div className="fixed top-0 left-0 w-screen min-h-screen bg-gray-700 opacity-65 flex items-center justify-center">
-            <h3
-              className="fixed top-0 right-5 z-10 text-white cursor-pointer"
-              onClick={() => {
-                setToggleSignIn(false);
-              }}
-            >
-              Close
-            </h3>
-          </div>
+        <Modal>
+          <h3
+            className="fixed top-0 right-5 z-10 text-white cursor-pointer"
+            onClick={() => {
+              setToggleSignIn(false);
+            }}
+          >
+            Close
+          </h3>
           <SignIn />
-        </div>
+        </Modal>
       )}
       {toggleSignUp && (
-        <div className="fixed flex items-center justify-center">
-          <div className="fixed top-0 left-0 w-screen min-h-screen bg-gray-700 opacity-65 flex items-center justify-center">
-            <h3
-              className="fixed top-0 right-5 z-10 text-white cursor-pointer"
-              onClick={() => {
-                setToggleSignUp(false);
-              }}
-            >
-              Close
-            </h3>
-          </div>
+        <Modal>
+          <h3
+            className="fixed top-0 right-5 z-10 text-white cursor-pointer"
+            onClick={() => {
+              setToggleSignUp(false);
+            }}
+          >
+            Close
+          </h3>
           <SignUp />
-        </div>
+        </Modal>
       )}
     </main>
   );

@@ -27,9 +27,9 @@ export async function deletePhoto(formData: FormData) {
  
   const filePath = extractFilePath(src)
   const cookieStore = cookies();
-  console.log({filePath})
+//   console.log({filePath})
     const {data, error} = await supabaseServer.storage.from('photos').remove([filePath])
-    console.log(data, error)
+    // console.log(data, error)
 
     if (error){
         return {success: false, error}
