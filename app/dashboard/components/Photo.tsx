@@ -3,11 +3,9 @@ import React, { Suspense, useState } from 'react';
 import Image from 'next/image';
 import PhotoSkeleton from './PhotoSkeleton';
 import PhotoModal from './PhotoModal';
-import { FaTrashCan } from 'react-icons/fa6';
-import { FaHeart } from 'react-icons/fa';
-import { deletePhoto } from '@/app/actions/delete';
 import Modal from '@/app/components/Modal';
 import DeleteBtn from './DeleteBtn';
+import FavoriteBtn from './FavoriteBtn';
 
 interface Props {
   src: string;
@@ -15,9 +13,17 @@ interface Props {
   photoName: string;
   width: number;
   height: number;
+  isFavored: boolean;
 }
 
-export default function Photo({ src, alt, width, height, photoName }: Props) {
+export default function Photo({
+  src,
+  alt,
+  width,
+  height,
+  photoName,
+  isFavored = false,
+}: Props) {
   const [reveal, setReveal] = useState(false);
   const [toggleModal, setToggleModal] = useState(false);
   const visibility = reveal ? 'visible' : 'hidden';
@@ -43,6 +49,7 @@ export default function Photo({ src, alt, width, height, photoName }: Props) {
             setToggleModal(true);
           }}
         />
+        <FavoriteBtn photoName={photoName} isFavored={isFavored} />
         <DeleteBtn src={src} />
       </div>
       <span

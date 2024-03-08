@@ -19,5 +19,3 @@ export default function DeleteBtn({ src }: Props) {
     </form>
   );
 }
-
-// left-[80%] bottom-[50px]

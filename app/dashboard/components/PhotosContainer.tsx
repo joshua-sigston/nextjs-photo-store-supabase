@@ -30,6 +30,7 @@ export default async function PhotosContainer() {
             photoName={photo?.photoName}
             width={300}
             height={300}
+            isFavored={photo.isFavored}
           />
         </div>
       ))}
