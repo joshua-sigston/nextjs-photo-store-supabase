@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import SignOutBtn from './components/SignOutBtn';
-import PhotoUpload from './components/PhotoUpload';
 import PhotosContainer from './components/PhotosContainer';
 
 export default function Dashboard() {
@@ -12,7 +11,6 @@ export default function Dashboard() {
         </div>
         <h1 className="mt-20">Your Photos</h1>
       </div>
-      <PhotoUpload />
       <PhotosContainer />
     </main>
   );

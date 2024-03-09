@@ -11,7 +11,7 @@ p {
   font-family: var(--dm-font);
 }
 
-button, a {
+button, a, label {
   font-family: var(--rubik-font);
 }
 
@@ -21,7 +21,7 @@ button, a {
   }
 
   .btn_submit {
-    @apply self-center bg-stone-500 hover:bg-stone-400 border-stone-700 hover:border-stone-500
+    @apply self-center bg-stone-500 hover:bg-stone-400 border-stone-700 hover:border-stone-500 
   }
 
   .form {

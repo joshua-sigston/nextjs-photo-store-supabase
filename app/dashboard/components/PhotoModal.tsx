@@ -10,7 +10,7 @@ interface Props {
 export default function PhotoModal({ src, alt, photoName }: Props) {
   // console.log(src, alt, photoName);
   return (
-    <div className="relative z-20">
+    <div className="relative z-30">
       <Image
         src={src}
         width={300}

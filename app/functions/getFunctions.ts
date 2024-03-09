@@ -8,6 +8,14 @@ interface Photo {
   name: string;
 }
 
+interface List {
+  url: string,
+  photoName: string,
+  isFavored: boolean
+}
+
+interface List extends Array<List> {}
+
 export async function getPhotos(user: User | null) {
   if (!user) return;
 
@@ -22,6 +30,32 @@ export async function getPhotos(user: User | null) {
   }
 
   return data;
+}
+
+export async function makePhotoList() {
+  const {data, error} = await supabaseServer.auth.getSession()
+
+  const user = data?.session?.user;
+  console.log(user)
+
+  const photos = await getPhotos(user as User);
+  const photoObjects = await getPhotoUrls(photos, user as User);
+  const favoritePhotos = await getFavorites(user as User);
+
+  const photoList: List[] = [];
+    photoObjects.map((photo) => {
+    photoList.push({ ...photo, isFavored: false });
+  });
+
+    const newList = photoList.map((photo) => {
+    if (favoritePhotos?.includes(photo.photoName)) {
+      return { ...photo, isFavored: true };
+    } else {
+      return { ...photo };
+    }
+  });
+  
+  return newList
 }
 
 export async function getPhotoUrls(photos: any, user: User) {

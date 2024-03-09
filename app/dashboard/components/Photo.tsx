@@ -40,6 +40,7 @@ export default function Photo({
             width: 'auto',
             height: 'auto',
             objectFit: 'fill',
+            border: isFavored ? '2px solid red' : '',
           }}
           className="rounded-sm shadow-md"
           alt={alt}
@@ -78,3 +79,5 @@ export default function Photo({
     </div>
   );
 }
+
+// user_uploads/ffdf9a6b-3549-4c00-b0a1-8d40cef4457d/0.10957709388804182.jpg File {name: 'hans-vivek-ntyA35WOb-k-unsplash.jpg', lastModified: 1700550210960, lastModifiedDate: Mon Nov 20 2023 23:03:30 GMT-0800 (Pacific Standard Time), webkitRelativePath: '', size: 2457331, …}lastModified: 1700550210960lastModifiedDate: Mon Nov 20 2023 23:03:30 GMT-0800 (Pacific Standard Time) {}name: "hans-vivek-ntyA35WOb-k-unsplash.jpg"size: 2457331type: "image/jpeg"webkitRelativePath: ""[[Prototype]]: FilelastModified: (...)lastModifiedDate: (...)name: (...)webkitRelativePath: (...)constructor: ƒ File()Symbol(Symbol.toStringTag): "File"size: (...)type: (...)get lastModified: ƒ lastModified()get lastModifiedDate: ƒ lastModifiedDate()get name: ƒ name()get webkitRelativePath: ƒ webkitRelativePath()[[Prototype]]: Blob

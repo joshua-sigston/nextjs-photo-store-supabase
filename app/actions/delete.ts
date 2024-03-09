@@ -1,7 +1,6 @@
 "use server"
 
 import { supabaseServer } from "../lib/supabaseServer"
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 

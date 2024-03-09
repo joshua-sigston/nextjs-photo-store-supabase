@@ -13,12 +13,12 @@ export async function middleware(req: NextRequest) {
   }
 
   if(!session) {
-    console.log('there is no session')
+    // console.log('there is no session')
     return NextResponse.rewrite(new URL('/', req.url))
   }
 
   if(session) {
-    console.log('you have session')
+    // console.log('you have session')
     return NextResponse.rewrite(new URL('/dashboard', req.url))
   }
 
